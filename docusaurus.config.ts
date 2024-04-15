@@ -28,6 +28,8 @@ const config: Config = {
     defaultLocale: 'ja',
     locales: ['ja'],
   },
+  //検索エンジンにindexされないようにする。
+  noIndex: true,
 
   presets: [
     [
