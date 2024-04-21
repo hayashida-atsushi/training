@@ -21,6 +21,7 @@ const FeatureList: FeatureItem[] = [
     ),
     uri: '/docs/study/intro',
   },
+  /** TODO:
   {
     title: 'Blog',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
@@ -31,6 +32,7 @@ const FeatureList: FeatureItem[] = [
     ),
     uri: '/blog',
   },
+  */
 ];
 
 function Feature({title, Svg, description,uri}: FeatureItem) {

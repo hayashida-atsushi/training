@@ -67,7 +67,9 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        /** TODO:
         {to: '/blog', label: 'Blog', position: 'left'},
+        */
         {
           type: 'docSidebar',
           sidebarId: 'study',
@@ -96,10 +98,11 @@ const config: Config = {
         {
           title: 'More',
           items: [
+            /** TODO:
             {
               label: 'Blog',
               to: '/blog',
-            },
+            },*/
             {
               label: 'GitHub',
               href: 'https://github.com/facebook/docusaurus',
