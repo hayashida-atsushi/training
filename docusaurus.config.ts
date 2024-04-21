@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'まとめ',
-  tagline: 'Dinosaurs are cool',
+  title: 'メモ.txt',
+  tagline: '就職してから現在までに学んだことをまとめています。',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -61,18 +61,12 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'まとめ',
+      title: 'メモ.txt',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'tutorial',
-        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'docSidebar',
@@ -94,25 +88,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Study',
+              to: '/docs/study',
             },
           ],
         },
