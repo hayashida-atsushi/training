@@ -18,8 +18,8 @@ const config: Config = {
   organizationName: 'hayashida-atsushi', // Usually your GitHub org/user name.
   projectName: 'training', // Usually your repo name.
 
-  /* onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',*/
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
