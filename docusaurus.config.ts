@@ -65,8 +65,7 @@ const config: Config = {
       title: 'メモ.txt',
       logo: {
         alt: 'My Site Logo',
-        //TODO:変更
-        src: 'img/logo.svg',
+        src: 'img/m.png',
       },
       items: [
         /** TODO:
