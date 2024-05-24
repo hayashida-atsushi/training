@@ -2,7 +2,19 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
+import { AutoStories, Collections, Mode } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
 
+const AutoStoriesStyles = styled(AutoStories)(({theme}) => ({
+    fontSize: 100,
+    //TODO:色変える
+    color: theme.palette.primary.main,
+})); 
+const ModeStyles = styled(Mode)(({theme}) => ({
+  fontSize: 100,
+  color: theme.palette.primary.main,
+})); 
+ 
 type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -35,11 +47,12 @@ const FeatureList: FeatureItem[] = [
   */
 ];
 
-function Feature({title, Svg, description,uri}: FeatureItem) {
+const Feature = ({title, Svg, description,uri}: FeatureItem) => {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <AutoStoriesStyles />
+        <ModeStyles />
       </div>
       <div className="text--center padding-horiz--md">
         <Link

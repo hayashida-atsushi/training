@@ -2,10 +2,11 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+
 const config: Config = {
   title: 'メモ.txt',
   tagline: '就職してから現在までに学んだことをまとめています。',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/m.ico',
 
   // Set the production url of your site here
   url: 'https://hayashida-atsushi.github.io',
@@ -64,6 +65,7 @@ const config: Config = {
       title: 'メモ.txt',
       logo: {
         alt: 'My Site Logo',
+        //TODO:変更
         src: 'img/logo.svg',
       },
       items: [
