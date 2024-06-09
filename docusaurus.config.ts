@@ -31,6 +31,12 @@ const config: Config = {
   },
   //検索エンジンにindexされないようにする。
   noIndex: true,
+  stylesheets: [
+    {
+      href: './src/css/code-block.css', // カスタムCSSファイルのパスを指定
+      type: 'text/css',
+    },  
+  ],
 
   presets: [
     [
@@ -51,7 +57,7 @@ const config: Config = {
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       } satisfies Preset.Options,
     ],
@@ -114,7 +120,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,

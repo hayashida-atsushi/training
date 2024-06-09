@@ -10,7 +10,7 @@
   --ifm-color-primary-dark: #2988d5;
   --ifm-color-primary-darker: #2988d5;
   --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-light: #69d8fa;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
@@ -23,8 +23,33 @@
   --ifm-color-primary-dark: #2988d5;
   --ifm-color-primary-darker: #2988d5;
   --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #2988d5;
+  --ifm-color-primary-light: #69d8fa;
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* コメントの色を変更 */
+.token.comment {
+  color: #6ed844 !important; /* 希望の色を指定 */
+}
+
+/* 文字系 */
+.token.plain,.token.operator,.token.punctuation {
+  color: whitesmoke !important;
+}
+
+/* 予約語系 */
+.token.builtin,.token.keyword {
+  color: rgb(189, 147, 249) !important;
+}
+
+/* 関数 */
+.token.function {
+  color: #69d8fa !important;
+}
+
+/* コードブロックのスタイルを変更 */
+pre[class*="language-"] {
+  background-color: #363636 !important;
+} 

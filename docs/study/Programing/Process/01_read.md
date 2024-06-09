@@ -11,7 +11,7 @@
 既存のソースコード1行1行にコメントを書くことが、読む練習になると思います。  
 例として[React Quick Start](https://ja.react.dev/learn)を用います。
 
-```js
+```jsx
 // productsの配列を定義。中にはプロパティが3つあるオブジェクトが含まれる。
 const products = [
   { title: 'Cabbage', isFruit: false, id: 1 },
@@ -31,7 +31,7 @@ export default function ShoppingList() {
         color: product.isFruit ? 'magenta' : 'darkgreen'
       }}
     >
-    // タイトルを表示
+    {/* タイトルを表示 */}
       {product.title}
     </li>
   );
