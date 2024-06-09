@@ -34,16 +34,6 @@
   color: #48922b !important; /* 希望の色を指定 */
 }
 
-/* 文字系 */
-.token.plain,.token.operator,.token.punctuation {
-  color: whitesmoke !important;
-}
-
-/* 予約語系 */
-.token.builtin,.token.keyword {
-  color: rgb(189, 147, 249) !important;
-}
-
 /* 関数 */
 .token.function {
   color: #69d8fa !important;
