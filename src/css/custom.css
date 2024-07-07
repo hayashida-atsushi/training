@@ -39,6 +39,10 @@
   color: #69d8fa !important;
 }
 
+/* 数字 */
+.token.number {
+  color: orange !important;
+}
 /* コードブロックのスタイルを変更 */
 pre[class*="language-"] {
   background-color: #363636 !important;

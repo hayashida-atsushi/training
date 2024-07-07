@@ -33,7 +33,7 @@ const config: Config = {
   noIndex: true,
   stylesheets: [
     {
-      href: './src/css/code-block.css', // カスタムCSSファイルのパスを指定
+      href: './src/css/custom.css', // カスタムCSSファイルのパスを指定
       type: 'text/css',
     },  
   ],
