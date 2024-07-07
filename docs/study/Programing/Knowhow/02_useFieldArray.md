@@ -286,7 +286,6 @@ const HogeNumberTextField: React.VFC<{
   };
 
   useEffect(() => {
-    // checkedによってコンポーネントを切り替えるので、明示的にバリデーション
     if (isSubmitted) void trigger(`hogeOptions.${index}.numberOfFactor`);
   }, [checked, index, isSubmitted, trigger]);
 
