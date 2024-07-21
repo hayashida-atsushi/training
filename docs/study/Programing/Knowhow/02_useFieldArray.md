@@ -109,10 +109,7 @@ const {
   } = useFormContext<HogeOptionForm>();
 
   const formKeyChecked = `hogeOptions.${index}.checked` as const;
-  const checked = watch(
-    formKeyChecked,
-    false,
-  );
+  const checked = watch(formKeyChecked);
 
   const handleClick = useCallback(() => {
     setValue(formKeyChecked, !checked);
@@ -241,10 +238,7 @@ const HogeReactForm: React.VFC<{
   } = useFormContext<HogeOptionForm>();
 
   const formKeyChecked = `hogeOptions.${index}.checked` as const;
-  const checked = watch(
-    formKeyChecked,
-    false,
-  );
+  const checked = watch(formKeyChecked);
 
   const handleClick = useCallback(() => {
     setValue(formKeyChecked, !checked);
