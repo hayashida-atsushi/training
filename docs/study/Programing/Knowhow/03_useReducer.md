@@ -160,7 +160,11 @@ const ExampleProvider: React.FC = () => {
 ### Contextを呼び出す
 
 普通に使うだけ<br/>
-Provider(上の例だと```<ExampleProvider></ExampleProvider>```)内でContextは呼び出せるので、適宜Providerを定義する。
+Provider(上の例だと```<ExampleProvider></ExampleProvider>```)内でContextは呼び出せるので、適宜Providerを定義する。<br/>
+:::caution 注意
+初期状態にする場合でも更新は明示的に行った方がよい。<br/>
+"画面再レンダーされるから初期値になるだろう"と暗黙的な処理をするとうまくいかないこともあるし、コードも追いづらい。
+:::
 
 ```ts title="Component.tsx"
 const Component: React.FC = () => {

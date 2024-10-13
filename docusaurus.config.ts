@@ -1,49 +1,49 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const config: Config = {
-  title: 'メモ.txt',
-  tagline: '就職してから現在までに学んだことをまとめています。',
-  favicon: 'img/m.ico',
+  title: "メモ.txt",
+  tagline: "就職してから現在までに学んだことをまとめています。",
+  favicon: "img/m.ico",
 
   // Set the production url of your site here
-  url: 'https://hayashida-atsushi.github.io',
+  url: "https://hayashida-atsushi.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/training/',
+  baseUrl: "/training/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'hayashida-atsushi', // Usually your GitHub org/user name.
-  projectName: 'training', // Usually your repo name.
+  organizationName: "hayashida-atsushi", // Usually your GitHub org/user name.
+  projectName: "training", // Usually your repo name.
 
-  onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'ignore',
+  onBrokenLinks: "ignore",
+  onBrokenMarkdownLinks: "ignore",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
   //検索エンジンにindexされないようにする。
   noIndex: true,
   stylesheets: [
     {
-      href: './src/css/custom.css', // カスタムCSSファイルのパスを指定
-      type: 'text/css',
-    },  
+      href: "./src/css/custom.css", // カスタムCSSファイルのパスを指定
+      type: "text/css",
+    },
   ],
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -54,10 +54,13 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve("./src/css/custom.css"),
+            require.resolve("./src/theme.ts"),
+          ],
         },
       } satisfies Preset.Options,
     ],
@@ -66,44 +69,56 @@ const config: Config = {
   //ここを編集するとサイドバーを編集できる
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: 'メモ.txt',
+      title: "メモ.txt",
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/m.png',
+        alt: "My Site Logo",
+        src: "img/m.png",
       },
       items: [
         /** TODO:
         {to: '/blog', label: 'Blog', position: 'left'},
         */
         {
-          type: 'docSidebar',
-          sidebarId: 'study',
-          position: 'left',
-          label: 'Study',
+          type: "docSidebar",
+          sidebarId: "study",
+          position: "left",
+          label: "Study",
         },
         {
-          href: 'https://github.com/hayashida-atsushi/training',
-          label: 'GitHub',
-          position: 'right',
+          type: "docSidebar",
+          sidebarId: "docusaurusMemo",
+          position: "left",
+          label: "Docusaurus memo",
+        },
+        {
+          href: "https://github.com/hayashida-atsushi/training",
+          className: "github",
+          position: "right",
+        },
+        // https://github.com/facebook/docusaurus/issues/2634
+        {
+          to: "/settings/",
+          position: "right",
+          className: "setting",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Study',
-              to: '/docs/study',
+              label: "Study",
+              to: "/docs/study",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             /** TODO:
             {
@@ -111,8 +126,8 @@ const config: Config = {
               to: '/blog',
             },*/
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: "GitHub",
+              href: "https://github.com/facebook/docusaurus",
             },
           ],
         },
