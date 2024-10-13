@@ -1,31 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Layout from "@theme/Layout";
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  Switch,
-  Typography,
-} from "@mui/material";
-import { useSettings } from "@site/src/hooks/useSettings";
+import { Box, FormControlLabel, Switch } from "@mui/material";
 
 // localStorageから取得
 const Component: React.FC = () => {
-  const [checked, setChecked] = useState(
-    JSON.parse(localStorage.getItem("showLoadingEffect"))
-  );
+  const [checked, setChecked] = useState(null);
   useEffect(() => {
-    const showLoadingEffect = JSON.parse(
-      localStorage.getItem("showLoadingEffect")
-    );
-    if (showLoadingEffect) {
-      setChecked(showLoadingEffect);
+    if (typeof window !== "undefined") {
+      const showLoadingEffect = JSON.parse(
+        localStorage.getItem("showLoadingEffect")
+      );
+      if (showLoadingEffect) {
+        setChecked(showLoadingEffect);
+      }
     }
   });
 
   const handleSetting = () => {
-    localStorage.setItem("showLoadingEffect", JSON.stringify(!checked));
-    setChecked(!checked);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("showLoadingEffect", JSON.stringify(!checked));
+      setChecked(!checked);
+    }
   };
 
   // TODO:fontなどのレイアウトの整理

@@ -1,7 +1,6 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import SettingsIcon from "@mui/icons-material/Settings";
 
 const config: Config = {
   title: "メモ.txt",
@@ -99,7 +98,7 @@ const config: Config = {
         },
         // https://github.com/facebook/docusaurus/issues/2634
         {
-          to: "/settings/",
+          to: "/settings/Settings",
           position: "right",
           className: "setting",
         },
