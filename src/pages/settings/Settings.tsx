@@ -4,6 +4,7 @@ import { Box, FormControlLabel, Switch } from "@mui/material";
 
 // localStorageから取得
 const Component: React.FC = () => {
+  // TODO：初回のみtrueにしたい、工夫の余地あり。
   const [checked, setChecked] = useState(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
