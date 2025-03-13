@@ -1,3 +1,6 @@
+---
+tags: [TypeScript, Frontend]
+---
 # 配列操作(フロントエンド)
 
 ## なぜ書いているか

@@ -1,3 +1,6 @@
+---
+tags: [TypeScript, Frontend, React]
+---
 # useReducerを使ったContextの更新
 
 ## なぜ書いているか

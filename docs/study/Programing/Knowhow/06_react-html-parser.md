@@ -1,3 +1,6 @@
+---
+tags: [TypeScript, Frontend, React, Library]
+---
 # ReactにHTMLをそのまま表示する
 
 ## なぜ書いているか
