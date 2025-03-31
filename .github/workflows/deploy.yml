@@ -6,8 +6,12 @@ on:
       - main
   workflow_dispatch: # GUIから手動実行できるようにする
 
+env:
+  ALLOWED_USER: hayashida-atsushi
+
 jobs:
   build:
+    if: env.ALLOWED_USER == github.actor
     name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +34,7 @@ jobs:
           path: build
 
   deploy:
+    if: env.ALLOWED_USER == github.actor
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
