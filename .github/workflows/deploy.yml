@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch: # GUIから手動実行できるようにする
 
+permissions:
+  contents: write # リポジトリのコンテンツへの書き込み権限
+  pages: write
+
 jobs:
   deploy:
     if: github.actor == 'hayashida-atsushi' && github.event_name == 'workflow_dispatch' # 手動実行のときだけ
