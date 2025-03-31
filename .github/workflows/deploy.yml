@@ -29,5 +29,7 @@ jobs:
           GIT_USER: ${{ secrets.GIT_USER }} # 環境変数から取得
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config --global user.email "hayashida.ns@gmail.com"
+          git config --global user.name "hayashida-atsushi"
           export CURRENT_BRANCH=main
           npm run deploy
