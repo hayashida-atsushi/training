@@ -11,7 +11,6 @@ jobs:
     if: github.actor == 'hayashida-atsushi'
     name: Build Docusaurus
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,7 +31,7 @@ jobs:
           path: build
 
   deploy:
-    if: github.actor == 'hayashida-atsushi'
+    if: github.actor == 'hayashida-atsushi' && github.event_name == 'workflow_dispatch'
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
@@ -52,6 +51,7 @@ jobs:
       - name: Deploy to GitHub Pages
         env:
           GIT_USER: ${{ secrets.GIT_USER }} # 環境変数から取得
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export CURRENT_BRANCH=main
           npm run deploy
