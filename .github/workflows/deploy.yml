@@ -47,7 +47,8 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Deploy to GitHub Pages
+        env:
+          GIT_USER: ${{ secrets.GIT_USER }} # 環境変数から取得
         run: |
-          export GIT_USER=hayashida-atsushi
           export CURRENT_BRANCH=main
           npm run deploy
