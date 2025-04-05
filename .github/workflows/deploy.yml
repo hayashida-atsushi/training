@@ -37,4 +37,4 @@ jobs:
           GIT_PASS: ${{ secrets.GIT_TOKEN }}
         run: |
           export CURRENT_BRANCH=main
-          npx docusaurus deploy
+          npm run deploy
