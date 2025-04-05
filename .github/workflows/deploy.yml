@@ -7,12 +7,12 @@ on:
   workflow_dispatch: # GUIから手動実行できるようにする
 
 permissions:
-  contents: write # リポジトリのコンテンツへの書き込み権限
+  contents: write
   pages: write
 
 jobs:
   deploy:
-    if: github.actor == 'hayashida-atsushi' && github.event_name == 'workflow_dispatch' # 手動実行のときだけ
+    if: github.actor == 'hayashida-atsushi' && github.event_name == 'workflow_dispatch'
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
@@ -29,21 +29,16 @@ jobs:
         run: npm ci
 
       - name: Build the site
-        run: npm run build # Docusaurusをビルドします
-
-      - name: Set Git user info
-        run: |
-          git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
-          git config --global user.name "${{ secrets.GIT_USER }}"
-          git remote set-url origin https://${{ secrets.GIT_USER }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.GIT_USER }}/training.git
-        env:
-          GIT_USER: ${{ secrets.GIT_USER }}
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         env:
-          GIT_USER: ${{ secrets.GIT_USER }} # 環境変数から取得
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GIT_USER: ${{ secrets.GIT_USER }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
         run: |
+          git config --global user.email "${GIT_USER_EMAIL}"
+          git config --global user.name "${GIT_USER}"
+          git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/${GIT_USER}/training.git
           export CURRENT_BRANCH=main
           npm run deploy
