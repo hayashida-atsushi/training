@@ -31,6 +31,11 @@ jobs:
       - name: Build the site
         run: npm run build
 
+      - name: Set git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Deploy to GitHub Pages
         env:
           GIT_USER: ${{ secrets.GIT_USER }}
