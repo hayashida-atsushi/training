@@ -6,9 +6,13 @@ on:
       - main
   workflow_dispatch: # GUIから手動実行できるようにする
 
+permissions:
+  contents: write
+  pages: write
+
 jobs:
   deploy:
-    if: github.actor == 'hayashida-atsushi' && github.event_name == 'workflow_dispatch' # 手動実行のときだけ
+    if: github.actor == 'hayashida-atsushi' && github.event_name == 'workflow_dispatch'
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
@@ -18,25 +22,24 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Set Git user info
+      - name: Build the site
+        run: npm run build
+
+      - name: Set git user
         run: |
-          git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
-          git config --global user.name "${{ secrets.GIT_USER }}"
-          git remote set-url origin https://$GIT_USER:$GITHUB_TOKEN@github.com/$GIT_USER/training.git
-        env:
-          GIT_USER: ${{ secrets.GIT_USER }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Deploy to GitHub Pages
         env:
-          GIT_USER: ${{ secrets.GIT_USER }} # 環境変数から取得
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER: ${{ secrets.GIT_USER }}
+          GIT_PASS: ${{ secrets.GIT_TOKEN }}
         run: |
           export CURRENT_BRANCH=main
           npm run deploy

@@ -21,6 +21,12 @@ const config: Config = {
   onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "ignore",
 
+  // allow mermaid
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
