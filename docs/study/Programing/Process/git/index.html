@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-study/Programing/Process/git" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">Git のよく使うコマンドとトラブルーシューティング 🔰 | メモ.txt</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="robots" content="noindex, nofollow"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://hayashida-atsushi.github.io/training/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://hayashida-atsushi.github.io/training/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://hayashida-atsushi.github.io/training/docs/study/Programing/Process/git"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="ja"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Git のよく使うコマンドとトラブルーシューティング 🔰 | メモ.txt"><meta data-rh="true" name="description" content="なぜ書いているか"><meta data-rh="true" property="og:description" content="なぜ書いているか"><link data-rh="true" rel="icon" href="/training/img/m.ico"><link data-rh="true" rel="canonical" href="https://hayashida-atsushi.github.io/training/docs/study/Programing/Process/git"><link data-rh="true" rel="alternate" href="https://hayashida-atsushi.github.io/training/docs/study/Programing/Process/git" hreflang="en"><link data-rh="true" rel="alternate" href="https://hayashida-atsushi.github.io/training/ja/docs/study/Programing/Process/git" hreflang="ja"><link data-rh="true" rel="alternate" href="https://hayashida-atsushi.github.io/training/docs/study/Programing/Process/git" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"プログラミング","item":"https://hayashida-atsushi.github.io/training/docs/category/プログラミング"},{"@type":"ListItem","position":2,"name":"学習方法🔰","item":"https://hayashida-atsushi.github.io/training/docs/category/学習方法"},{"@type":"ListItem","position":3,"name":"Git のよく使うコマンドとトラブルーシューティング 🔰","item":"https://hayashida-atsushi.github.io/training/docs/study/Programing/Process/git"}]}</script><link rel="alternate" type="application/rss+xml" href="/training/blog/rss.xml" title="メモ.txt RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/training/blog/atom.xml" title="メモ.txt Atom Feed">
+
+
+
+
+
+<link rel="stylesheet" href="./src/css/custom.css"><link rel="stylesheet" href="/training/assets/css/styles.9aa831c1.css">
+<script src="/training/assets/js/runtime~main.020a0940.js" defer="defer"></script>
+<script src="/training/assets/js/main.db2d48e7.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/training/"><div class="navbar__logo"><img src="/training/img/m.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/training/img/m.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">メモ.txt</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/training/docs/study/intro">Study</a><a class="navbar__item navbar__link" href="/training/docs/docusaurus-memo/intro">Docusaurus memo</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/hayashida-atsushi/training" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link github"></a><a class="navbar__item navbar__link setting" href="/training/settings/Settings"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/training/docs/study/intro">はじめに</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/training/docs/category/資格関連">資格関連</a><button aria-label="Expand sidebar category &#x27;資格関連&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/training/docs/category/プログラミング">プログラミング</a><button aria-label="Collapse sidebar category &#x27;プログラミング&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/training/docs/category/学習方法">学習方法🔰</a><button aria-label="Collapse sidebar category &#x27;学習方法🔰&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/training/docs/study/Programing/Process/read">プログラムを読む</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/training/docs/study/Programing/Process/premiss">プログラム書く前に</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/training/docs/study/Programing/Process/git">Git のよく使うコマンドとトラブルーシューティング 🔰</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/training/docs/category/技術メモ">技術メモ</a><button aria-label="Expand sidebar category &#x27;技術メモ&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/training/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/training/docs/category/プログラミング"><span>プログラミング</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/training/docs/category/学習方法"><span>学習方法🔰</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Git のよく使うコマンドとトラブルーシューティング 🔰</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Git のよく使うコマンドとトラブルーシューティング 🔰</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="なぜ書いているか">なぜ書いているか<a href="#なぜ書いているか" class="hash-link" aria-label="Direct link to なぜ書いているか" title="Direct link to なぜ書いているか">​</a></h2>
+<p>チーム開発において Git の知識は必須であるが、初心者にとっては慣れが必要でとっつきにくいこともある。<br>
+その知識面でのサポートを行うことが重要であるが、公式は英語であったり意外と集約されているページが少なかったりと、絶妙にかゆいところに手が届かないのが実情である。<br>
+そこで本ページではよく使うコマンドと実際に開発する上での流れ的なもの、トラブルシューティングの 3 本を紹介する。<br>
+設定周りなどの話は省略する(別で用意するかも)。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="git-のよく使うコマンド">Git のよく使うコマンド<a href="#git-のよく使うコマンド" class="hash-link" aria-label="Direct link to Git のよく使うコマンド" title="Direct link to Git のよく使うコマンド">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="clone">clone<a href="#clone" class="hash-link" aria-label="Direct link to clone" title="Direct link to clone">​</a></h3>
+<p>対象のリポジトリを clone(リモートリポジトリからローカルリポジトリにコピー)する場合に使用する。</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git clone https://github.com/○○/○○.git</code></li>
+<li>画像の部分からコピーした URL が対応(shiki.js のリポジトリを例)</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-4-12c40dbdda38e561be4077b79466152c.png" width="1253" height="420" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="branch">branch<a href="#branch" class="hash-link" aria-label="Direct link to branch" title="Direct link to branch">​</a></h3>
+<p>現在の branch をベースに新しい branch を作成する</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git branch ブランチ名</code></li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li>左下のブランチ名押下 &gt; create new branch から作成。</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="data:image/png;base64,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" width="121" height="112" class="img_ev3q"></li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-13-a6c773ad0159c239c794d504dd26dae5.png" width="572" height="232" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>画像のブランチ名を押下して、New Branch を押下。</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-14-76199adabc9af5ac83f92b8520e69f6e.png" width="596" height="238" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="checkout">checkout<a href="#checkout" class="hash-link" aria-label="Direct link to checkout" title="Direct link to checkout">​</a></h3>
+<p>現在の branch から別の branch に移動するときに使用する。</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git checkout 移動先のブランチ名</code></li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li>左下のブランチ名押下 &gt; 移動先のブランチを選択</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="data:image/png;base64,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" width="121" height="112" class="img_ev3q"></li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-13-a6c773ad0159c239c794d504dd26dae5.png" width="572" height="232" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>画像のブランチ名を押下して、移動先のブランチを選択。</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-15-caf45261e0fab71a1f140e2ebc280178.png" width="579" height="280" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="add">add<a href="#add" class="hash-link" aria-label="Direct link to add" title="Direct link to add">​</a></h3>
+<p>対象のファイルをコミット前のステージングするときに使用する。</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git add ファイル名</code></li>
+<li><code>git add .</code>で配下のすべてのファイルを add する。</li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li>画像の+ボタン</li>
+<li><img decoding="async" loading="lazy" alt="画像の+ボタン" src="/training/assets/images/image-0f931857784ceed99f80e78b90a91dd7.png" width="295" height="226" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>基本はファイル作成時に自動で add される。以下は add されていない場合に手動で行う方法。</li>
+<li>画像の add したいファイル 右クリック &gt; Git &gt; Add</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-1-81b9bf11442fecb9b02bbf0197f29ffd.png" width="880" height="773" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="commit">commit<a href="#commit" class="hash-link" aria-label="Direct link to commit" title="Direct link to commit">​</a></h3>
+<p>対象のファイルをコミット(変更を確定)するときに使う。</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git commit -m &quot;commit message を記載する&quot;</code></li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li>画像の box に commit message を記載し、commit ボタンを押下。(staged changes のみが commit される)</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-2-6ba418d816fbf568bb52d870b9873b22.png" width="289" height="172" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>画像のように changes に ✅ を入れ、commit message を「メモを追加」の部分に記載し、commit ボタンを押下。</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-3-d0ad40f44034f24e96bb4977adb8b0fb.png" width="793" height="343" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="push">push<a href="#push" class="hash-link" aria-label="Direct link to push" title="Direct link to push">​</a></h3>
+<p>コミットしたファイルをリモートリポジトリに反映させる</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p>develop や main などの branch には直接 push しないようにすること。
+大体リモートリポジトリ側で防がれているが、基本的には MR や PR を作ってそれをマージしてもらうことで変更を加えるようにすること。
+詳細は開発の流れで記載。</p></div></div>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git push origin リモートブランチ名</code></li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li>画像の 3 点リ ーダーから push を押下</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-5-4bc8af007888d4ebf1ffd0100134636d.png" width="537" height="379" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>画像のブランチ名をクリックして、push を押下</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-6-056d6b7436850c3378b20ffe50d48ab2.png" width="615" height="189" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fetch">fetch<a href="#fetch" class="hash-link" aria-label="Direct link to fetch" title="Direct link to fetch">​</a></h3>
+<p>リモートブランチの変更をローカルにあるリモート追跡用のブランチに取り込む</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git fetch</code></li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li>画像の 3 点リーダーから fetch を押下</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-5-4bc8af007888d4ebf1ffd0100134636d.png" width="537" height="379" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>画像左上のハンバーガーから git &gt; fetch を押下</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-7-088c16a0f3087423a72dde9ddbdcc3ee.png" width="647" height="178" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="merge">merge<a href="#merge" class="hash-link" aria-label="Direct link to merge" title="Direct link to merge">​</a></h3>
+<p>あるブランチを別のブランチに取り込む</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li>取り込み先のブランチで<code>git merge 取り込み元のブランチ名</code></li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li><code>Ctrl+Shift+P</code>で検索 box を開き git merge と検索して、git merge を押下。取り込みたいブランチを選択する。</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-8-451377e121b822848cd2273a66736daa.png" width="613" height="193" class="img_ev3q"></li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-9-f806dc88a930618097fc0c57d4efee1d.png" width="593" height="91" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>画像左上のハンバーガーから git &gt; merge を押下。merge 元のブランチ名を入力して merge を押下。</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-10-f3841bc9b895623c57dd0e6056cbb6a3.png" width="655" height="233" class="img_ev3q"></li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="data:image/png;base64,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" width="414" height="132" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pull">pull<a href="#pull" class="hash-link" aria-label="Direct link to pull" title="Direct link to pull">​</a></h3>
+<p>リモートブランチの変更をローカルブランチに取り込むときに使用。(fetch+merge)</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li>該当ブランチで<code>git pull</code></li>
+</ul>
+</li>
+<li>VSCode<!-- -->
+<ul>
+<li>画像の 3 点リーダーから pull を押下</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-5-4bc8af007888d4ebf1ffd0100134636d.png" width="537" height="379" class="img_ev3q"></li>
+</ul>
+</li>
+<li>IntelliJ<!-- -->
+<ul>
+<li>画像左上のハンバーガーから git &gt; pull を押下</li>
+<li><img decoding="async" loading="lazy" alt="alt text" src="/training/assets/images/image-7-088c16a0f3087423a72dde9ddbdcc3ee.png" width="647" height="178" class="img_ev3q"></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="log">log<a href="#log" class="hash-link" aria-label="Direct link to log" title="Direct link to log">​</a></h3>
+<p>該当ブランチのコミットログを表示する。</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git log</code></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="revert">revert<a href="#revert" class="hash-link" aria-label="Direct link to revert" title="Direct link to revert">​</a></h3>
+<p>コミットログを指定して、コミットを取り消す。(取り消したコミットログは消えない)</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li><code>git revert コミットログ</code></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reset">reset<a href="#reset" class="hash-link" aria-label="Direct link to reset" title="Direct link to reset">​</a></h3>
+<p>コミットを取り消す。(取り消したコミットログは消える。参照できなくな  る)</p>
+<ul>
+<li>コマンドライン<!-- -->
+<ul>
+<li>直前のコミットを取り消す。<code>git reset --hard HEAD^</code></li>
+</ul>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p>よほどのことがない限り使わないようにすること。</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="チーム開発の流れ例と作業者がやること">チーム開発の流れ例と作業者がやること<a href="#チーム開発の流れ例と作業者がやること" class="hash-link" aria-label="Direct link to チーム開発の流れ例と作業者がやること" title="Direct link to チーム開発の流れ例と作業者がやること">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="具体例">具体例<a href="#具体例" class="hash-link" aria-label="Direct link to 具体例" title="Direct link to 具体例">​</a></h3>
+<p>チーム開発をする上で大まかな開発の流れを理解することで、コンフリクトなどやトラブルを防ぐことができる。<br>
+以下はよくある conflict した際のブランチの模式図である。<br>
+feature-A を develop にマージする際に conflict が発生し、大規模修正が必要となったりする。さて、これを防ぐにはどうしたらよいだろうか。</p>
+<!-- -->
+<p>feature-B が develop に merge されたタイミングで feature-A の作業者は以下の作業をしておかなければならない。</p>
+<ol>
+<li>リモートの develop を pull</li>
+<li>ローカル の develop をローカルの feature-A に merge(※ここで conflict する可能性はある)</li>
+<li>commit D を行う。</li>
+</ol>
+<p>とすると最低限の conflict の解消で済む。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="作業者の作業">作業者の作業<a href="#作業者の作業" class="hash-link" aria-label="Direct link to 作業者の作業" title="Direct link to 作業者の作業">​</a></h3>
+<p>以上を踏まえて、作業者が定期的に(毎日)やることは以下。</p>
+<ol>
+<li>自身が作業しているブランチの切り出し元のブランチを pull する。</li>
+<li>その切り出し元のブランチを自身の作業ブランチに merge する。</li>
+<li>必要に応じて conflict を解消する。</li>
+<li>以降は自分の作業を行う</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="トラブルシューティング集">トラブルシューティング集<a href="#トラブルシューティング集" class="hash-link" aria-label="Direct link to トラブルシューティング集" title="Direct link to トラブルシューティング集">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="直前に不要なファイルをコミットしたので取り消したい">直前に不要なファイルをコミットしたので取り消したい<a href="#直前に不要なファイルをコミットしたので取り消したい" class="hash-link" aria-label="Direct link to 直前に不要なファイルをコミットしたので取り消したい" title="Direct link to 直前に不要なファイルをコミットしたので取り消したい">​</a></h3>
+<p>個人的には reset か revert で戻すのを推奨。rebase はログが書き換わるため、よくわからなくなることが多い。</p>
+<ul>
+<li>ログを残したい<!-- -->
+<ul>
+<li><code>git log</code>で最新のコミットログの hash 値を取得</li>
+<li><code>git revert コミットログ</code></li>
+</ul>
+</li>
+<li>ログを残 したくない<!-- -->
+<ul>
+<li><code>git reset --hard HEAD^</code>または<code>git reset --hard コミットログ</code></li>
+</ul>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p>どちらにせよコミットする前の状態(=コミットした内容は消えることに注意。変更箇所が残ったまま add した状態に戻るわけではない)</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="直前ではない不要な差分をコミットしたので取り消したい">直前ではない不要な差分をコミットしたので取り消したい<a href="#直前ではない不要な差分をコミットしたので取り消したい" class="hash-link" aria-label="Direct link to 直前ではない不要な差分をコミットしたので取り消したい" title="Direct link to 直前ではない不要な差分をコミットしたので取り消したい">​</a></h3>
+<p>個人的には revert で戻すのを推奨。rebase はログが書き換わるため、よくわからなくなることが多い。
+以下フローチャートでやる行動を変えること。<br>
+**基本的なモチベーションとしては楽に戻せる部分は楽に戻す(revert で複数まとめてやるのが楽).
+**</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>※conflict しそうかどうかは、その不要な commit の後に同じ箇所(行)を変更して commit したかどうかで判断する。</p></div></div>
+<!-- -->
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="間違えてローカルの-develop-や-main-ブランチに-commit-してしまった">間違えてローカルの develop や main ブランチに commit してしまった<a href="#間違えてローカルの-develop-や-main-ブランチに-commit-してしまった" class="hash-link" aria-label="Direct link to 間違えてローカルの develop や main ブランチに commit してしまった" title="Direct link to 間違えてローカルの develop や main ブランチに commit してしまった">​</a></h3>
+<p>上記と同じように対応すること。ただし、commit ログを残したくないので、reset で行うこと。自信がなければ周りの人に相談しましょう。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ローカルブランチと-push-先のリモートブランチがなぜか異なる">ローカルブランチと push 先のリモートブランチがなぜか異なる<a href="#ローカルブランチと-push-先のリモートブランチがなぜか異なる" class="hash-link" aria-label="Direct link to ローカルブランチと push 先のリモートブランチがなぜか異なる" title="Direct link to ローカルブランチと push 先のリモートブランチがなぜか異なる">​</a></h3>
+<ul>
+<li><code>git branch -vv</code>で一旦どこにつながっているのかを確認する(本当に異なるのか)</li>
+<li><code>git branch --unset-upstream</code>で一旦 push 先をリセットする</li>
+<li>再度 push する。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="参考">参考<a href="#参考" class="hash-link" aria-label="Direct link to 参考" title="Direct link to 参考">​</a></h2>
+<ul>
+<li><a href="https://github.com/shikijs/shiki" target="_blank" rel="noopener noreferrer">shiki.js</a></li>
+<li><a href="https://qiita.com/hirokiwa/items/8ba4901a865ccdecb4e8" target="_blank" rel="noopener noreferrer">Qiita</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/training/docs/tags/git">Git</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-08-22T00:45:01.000Z" itemprop="dateModified">Aug 22, 2025</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/training/docs/study/Programing/Process/premiss"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">プログラム書く前に</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/training/docs/category/技術メモ"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">技術メモ</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#なぜ書いているか" class="table-of-contents__link toc-highlight">なぜ書いているか</a></li><li><a href="#git-のよく使うコマンド" class="table-of-contents__link toc-highlight">Git のよく使うコマンド</a><ul><li><a href="#clone" class="table-of-contents__link toc-highlight">clone</a></li><li><a href="#branch" class="table-of-contents__link toc-highlight">branch</a></li><li><a href="#checkout" class="table-of-contents__link toc-highlight">checkout</a></li><li><a href="#add" class="table-of-contents__link toc-highlight">add</a></li><li><a href="#commit" class="table-of-contents__link toc-highlight">commit</a></li><li><a href="#push" class="table-of-contents__link toc-highlight">push</a></li><li><a href="#fetch" class="table-of-contents__link toc-highlight">fetch</a></li><li><a href="#merge" class="table-of-contents__link toc-highlight">merge</a></li><li><a href="#pull" class="table-of-contents__link toc-highlight">pull</a></li><li><a href="#log" class="table-of-contents__link toc-highlight">log</a></li><li><a href="#revert" class="table-of-contents__link toc-highlight">revert</a></li><li><a href="#reset" class="table-of-contents__link toc-highlight">reset</a></li></ul></li><li><a href="#チーム開発の流れ例と作業者がやること" class="table-of-contents__link toc-highlight">チーム開発の流れ例と作業者がやること</a><ul><li><a href="#具体例" class="table-of-contents__link toc-highlight">具体例</a></li><li><a href="#作業者の作業" class="table-of-contents__link toc-highlight">作業者の作業</a></li></ul></li><li><a href="#トラブルシューティング集" class="table-of-contents__link toc-highlight">トラブルシューティング集</a><ul><li><a href="#直前に不要なファイルをコミットしたので取り消したい" class="table-of-contents__link toc-highlight">直前に不要なファイルをコミットしたので取り消したい</a></li><li><a href="#直前ではない不要な差分をコミットしたので取り消したい" class="table-of-contents__link toc-highlight">直前ではない不要な差分をコミットしたので取り消したい</a></li><li><a href="#間違えてローカルの-develop-や-main-ブランチに-commit-してしまった" class="table-of-contents__link toc-highlight">間違えてローカルの develop や main ブランチに commit してしまった</a></li><li><a href="#ローカルブランチと-push-先のリモートブランチがなぜか異なる" class="table-of-contents__link toc-highlight">ローカルブランチと push 先のリモートブランチがなぜか異なる</a></li></ul></li><li><a href="#参考" class="table-of-contents__link toc-highlight">参考</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/training/docs/study">Study</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
