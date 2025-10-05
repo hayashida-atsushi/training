@@ -20,7 +20,7 @@ tags: [Git]
 - コマンドライン
   - `git clone https://github.com/○○/○○.git`
   - 画像の部分からコピーした URL が対応(shiki.js のリポジトリを例)
-  - ![alt text](image-4.png)
+  - ![alt text](../../../../static/img/image-4.png)
 
 ### branch
 
@@ -30,11 +30,11 @@ tags: [Git]
   - `git branch ブランチ名`
 - VSCode
   - 左下のブランチ名押下 > create new branch から作成。
-  - ![alt text](image-12.png)
-  - ![alt text](image-13.png)
+  - ![alt text](../../../../static/img/image-12.png)
+  - ![alt text](../../../../static/img/image-13.png)
 - IntelliJ
   - 画像のブランチ名を押下して、New Branch を押下。
-  - ![alt text](image-14.png)
+  - ![alt text](../../../../static/img/image-14.png)
 
 ### checkout
 
@@ -44,11 +44,11 @@ tags: [Git]
   - `git checkout 移動先のブランチ名`
 - VSCode
   - 左下のブランチ名押下 > 移動先のブランチを選択
-  - ![alt text](image-12.png)
-  - ![alt text](image-13.png)
+  - ![alt text](../../../../static/img/image-12.png)
+  - ![alt text](../../../../static/img/image-13.png)
 - IntelliJ
   - 画像のブランチ名を押下して、移動先のブランチを選択。
-  - ![alt text](image-15.png)
+  - ![alt text](../../../../static/img/image-15.png)
 
 ### add
 
@@ -59,11 +59,11 @@ tags: [Git]
   - `git add .`で配下のすべてのファイルを add する。
 - VSCode
   - 画像の+ボタン
-  - ![画像の+ボタン](image.png)
+  - ![画像の+ボタン](../../../../static/img/image.png)
 - IntelliJ
   - 基本はファイル作成時に自動で add される。以下は add されていない場合に手動で行う方法。
   - 画像の add したいファイル 右クリック > Git > Add
-  - ![alt text](image-1.png)
+  - ![alt text](../../../../static/img/image-1.png)
 
 ### commit
 
@@ -73,10 +73,10 @@ tags: [Git]
   - `git commit -m "commit message を記載する"`
 - VSCode
   - 画像の box に commit message を記載し、commit ボタンを押下。(staged changes のみが commit される)
-  - ![alt text](image-2.png)
+  - ![alt text](../../../../static/img/image-2.png)
 - IntelliJ
   - 画像のように changes に ✅ を入れ、commit message を「メモを追加」の部分に記載し、commit ボタンを押下。
-  - ![alt text](image-3.png)
+  - ![alt text](../../../../static/img/image-3.png)
 
 ### push
 
@@ -92,10 +92,10 @@ develop や main などの branch には直接 push しないようにするこ�
   - `git push origin リモートブランチ名`
 - VSCode
   - 画像の 3 点リーダーから push を押下
-  - ![alt text](image-5.png)
+  - ![alt text](../../../../static/img/image-5.png)
 - IntelliJ
   - 画像のブランチ名をクリックして、push を押下
-  - ![alt text](image-6.png)
+  - ![alt text](../../../../static/img/image-6.png)
 
 ### fetch
 
@@ -105,10 +105,10 @@ develop や main などの branch には直接 push しないようにするこ�
   - `git fetch`
 - VSCode
   - 画像の 3 点リーダーから fetch を押下
-  - ![alt text](image-5.png)
+  - ![alt text](../../../../static/img/image-5.png)
 - IntelliJ
   - 画像左上のハンバーガーから git > fetch を押下
-  - ![alt text](image-7.png)
+  - ![alt text](../../../../static/img/image-7.png)
 
 ### merge
 
@@ -118,12 +118,12 @@ develop や main などの branch には直接 push しないようにするこ�
   - 取り込み先のブランチで`git merge 取り込み元のブランチ名`
 - VSCode
   - `Ctrl+Shift+P`で検索 box を開き git merge と検索して、git merge を押下。取り込みたいブランチを選択する。
-  - ![alt text](image-8.png)
-  - ![alt text](image-9.png)
+  - ![alt text](../../../../static/img/image-8.png)
+  - ![alt text](../../../../static/img/image-9.png)
 - IntelliJ
   - 画像左上のハンバーガーから git > merge を押下。merge 元のブランチ名を入力して merge を押下。
-  - ![alt text](image-10.png)
-  - ![alt text](image-11.png)
+  - ![alt text](../../../../static/img/image-10.png)
+  - ![alt text](../../../../static/img/image-11.png)
 
 ### pull
 
@@ -133,10 +133,10 @@ develop や main などの branch には直接 push しないようにするこ�
   - 該当ブランチで`git pull`
 - VSCode
   - 画像の 3 点リーダーから pull を押下
-  - ![alt text](image-5.png)
+  - ![alt text](../../../../static/img/image-5.png)
 - IntelliJ
   - 画像左上のハンバーガーから git > pull を押下
-  - ![alt text](image-7.png)
+  - ![alt text](../../../../static/img/image-7.png)
 
 ### log
 
